@@ -1,6 +1,10 @@
 import Link from "next/link";
 import {useMemo} from "react";
-
+import type {Metadata} from "next";
+export const metadata: Metadata = {
+    title: "六壬",
+    description: "六壬",
+};
 const getMonthDayTime = ()=>{
     const [date,time] = new Date().toLocaleString("ja-JP-u-ca-chinese").split(" ")
     const [_,month,day] = date.split("-")
@@ -48,10 +52,10 @@ export default function liuren(props) {
                     <span className={"text-5xl font-bold"}>
                         {宫位[witchOne % 6].title}
                     </span>
-                    <span>
-                        {useMemo(() => new Date().toLocaleString("ja-JP-u-ca-chinese"), [])}{" "}
-                        开{时辰映射[monthDayTime[2]]}时
-                    </span>
+                    <div className={"flex gap-2 flex-wrap flex-col items-center"}>
+                        <span className={"whitespace-nowrap"}>{useMemo(() => new Date().toLocaleString("ja-JP-u-ca-chinese"), [])}</span>
+                        <span className={"whitespace-nowrap"}>开{时辰映射[monthDayTime[2]]}时->{monthDayTime[2]}</span>
+                    </div>
                 </div>
             </div>
         </div>
