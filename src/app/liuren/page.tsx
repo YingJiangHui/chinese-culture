@@ -53,7 +53,7 @@ export default function liuren(props) {
                     </span>
                     <div className={"flex gap-2 flex-wrap flex-col items-center"}>
                         <span className={"whitespace-nowrap"}>{useMemo(() => new Date().toLocaleString("ja-JP-u-ca-chinese"), [])}</span>
-                        <span className={"whitespace-nowrap"}>开{时辰映射[monthDayTime[2]]}时->{monthDayTime[2]}</span>
+                        <span className={"whitespace-nowrap"}>开{时辰映射[monthDayTime[2]]}时-&gt;{monthDayTime[2]}</span>
                     </div>
                 </div>
             </div>
