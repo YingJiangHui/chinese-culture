@@ -7,8 +7,9 @@ export const metadata: Metadata = {
 const getMonthDayTime = ()=>{
     const [date,time] = new Date().toLocaleString("ja-JP-u-ca-chinese").split(" ")
     const [_,month,day] = date.split("-")
+
     const [t] = time.split(":")
-    console.log(month,day,t)
+    console.log(_,month,day,t)
     return [month,day,时辰[Number(t)]].map(item=>Number(item))
 }
 const 时辰 = {
@@ -40,7 +41,7 @@ const 时辰 = {
 const 时辰映射 = ["子","丑",'寅','卯','辰','巳','午',"未","申","酉",'戌','亥']
 const 宫位 = [{ title:"大安", desc:"" },{ title:"流离", desc:"" },{ title:"速喜", desc:"" },{ title:"赤口", desc:"" },{ title:"小吉", desc:"" },{ title:"空亡", desc:"" }]
 
-export default function liuren(props) {
+export default function liuren() {
     const monthDayTime = getMonthDayTime()
     const witchOne = monthDayTime.reduce((sum,item)=>sum+item,0)-3
     return (
@@ -52,7 +53,7 @@ export default function liuren(props) {
                         {宫位[witchOne % 6].title}
                     </span>
                     <div className={"flex gap-2 flex-wrap flex-col items-center"}>
-                        <span className={"whitespace-nowrap"}>{useMemo(() => new Date().toLocaleString("ja-JP-u-ca-chinese"), [])}</span>
+                        <span className={"whitespace-nowrap"}>{new Date().toLocaleString("ja-JP-u-ca-chinese")}</span>
                         <span className={"whitespace-nowrap"}>开{时辰映射[monthDayTime[2]]}时-&gt;{monthDayTime[2]}</span>
                     </div>
                 </div>
