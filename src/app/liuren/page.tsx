@@ -1,4 +1,3 @@
-import {useMemo} from "react";
 import type {Metadata} from "next";
 export const metadata: Metadata = {
     title: "六壬",
@@ -12,7 +11,7 @@ const getMonthDayTime = ()=>{
     console.log(_,month,day,t)
     return [month,day,时辰[Number(t)]].map(item=>Number(item))
 }
-const 时辰 = {
+const 时辰: Record<number,number> = {
     23:1,
     0:1,
     1:2,
@@ -38,8 +37,8 @@ const 时辰 = {
     21:12,
     22:12,
 }
-const 时辰映射 = ["子","丑",'寅','卯','辰','巳','午',"未","申","酉",'戌','亥']
-const 宫位 = [{ title:"大安", desc:"" },{ title:"流离", desc:"" },{ title:"速喜", desc:"" },{ title:"赤口", desc:"" },{ title:"小吉", desc:"" },{ title:"空亡", desc:"" }]
+const 时辰映射: string[] = ["子","丑",'寅','卯','辰','巳','午',"未","申","酉",'戌','亥']
+const 宫位: {title: string,desc: string}[] = [{ title:"大安", desc:"" },{ title:"流离", desc:"" },{ title:"速喜", desc:"" },{ title:"赤口", desc:"" },{ title:"小吉", desc:"" },{ title:"空亡", desc:"" }]
 
 export default function liuren() {
     const monthDayTime = getMonthDayTime()
