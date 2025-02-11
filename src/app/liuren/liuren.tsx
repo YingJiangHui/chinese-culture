@@ -1,7 +1,5 @@
 "use client"
 
-import {useMemo} from "react";
-
 const getMonthDayTime = ()=>{
     const [date,time] = new Date().toLocaleString("ja-JP-u-ca-chinese").split(" ")
     const [_,month,day] = date.split("-")
@@ -40,7 +38,7 @@ const 时辰映射: string[] = ["子","丑",'寅','卯','辰','巳','午',"未",
 const 宫位: {title: string,desc: string}[] = [{ title:"大安", desc:"" },{ title:"流离", desc:"" },{ title:"速喜", desc:"" },{ title:"赤口", desc:"" },{ title:"小吉", desc:"" },{ title:"空亡", desc:"" }]
 
 export default function liuren() {
-    const monthDayTime = useMemo(()=>getMonthDayTime(),[])
+    const monthDayTime = getMonthDayTime()
     const witchOne = monthDayTime.reduce((sum,item)=>sum+item,0)-3
     return (
         <div
