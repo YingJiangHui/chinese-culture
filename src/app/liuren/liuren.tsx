@@ -42,7 +42,7 @@ export default function liuren() {
     const witchOne = monthDayTime.reduce((sum,item)=>sum+item,0)-3
     return (
         <div
-            className="w-full flex-1 flex gap-8 p-24 justify-center items-center h-full font-[family-name:var(--font-geist-sans)]">
+            className="w-full flex-1 flex gap-8 justify-center items-center h-full font-[family-name:var(--font-geist-sans)]">
             <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
                 <div className="p-10 rounded-sm bg-red-100 flex flex-col gap-5 items-center">
                     <span className={"text-5xl font-bold"}>
